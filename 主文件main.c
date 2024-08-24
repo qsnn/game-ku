@@ -1,0 +1,140 @@
+#include"ku.h"
+
+
+//几个游戏
+int mainversion();
+int mainguessnum();
+int mainszq();
+int mainsaolei();
+//游戏接口说明：按照次序return [n]666
+//比如说：猜数字1666，三子棋2666 ......
+//新增游戏只需添加接口即可
+
+
+//主文件函数
+int mainmenu();
+int end(int mainres);
+
+
+//主入口---------------------------****-------------------------------------
+int main()
+{
+	int endreturn;
+	do
+	{
+		int mainres = mainmenu();//mainmenu会返回一个数值，处理游戏结果
+		endreturn = end(mainres);//根据游戏结果运行结束程序
+	} while (endreturn = 666);
+	return "Exit";
+}
+
+//主入口---------------------------****-------------------------------------
+
+
+
+//1、主菜单函数
+int mainmenu()
+{
+	while(1)
+	{
+		PlaySound(NULL, NULL, SND_PURGE);
+		system("cls");
+		printf("***************************************************\n");
+		printf("*************  QS游戏库-made by qsnn  *************\n");
+		printf("************  版本：v1.1               ************\n");
+		printf("***************************************************\n");
+		printf("请选择你想玩的游戏\n");
+		printf("1 *> 猜数字\n");
+		printf("2 *> 三子棋\n");
+		printf("3 *> 扫雷\n");
+		printf("v *> 版本日志\n");
+		printf("exit *> 退出\n");
+		printf(" *>");
+		char mainchoose[10];
+		scanf("%s", &mainchoose);//选择进行的游戏
+		if (strcmp(mainchoose, "1") == 0)
+		{
+			return mainguessnum();//返回1666
+		}
+		else if (strcmp(mainchoose, "2") == 0)
+		{
+			return mainszq();//返回2666
+		}
+		else if (strcmp(mainchoose, "3") == 0)
+		{
+			return mainsaolei();//返回3666
+		}
+		else if (strcmp(mainchoose, "v") == 0)
+		{
+			return mainversion();
+		}
+		else if (strcmp(mainchoose, "exit") == 0)
+		{
+			break;
+		}
+		else
+		{
+			printf("请1秒后输入正确的指令！");
+			Sleep(1000);
+		}
+	}
+}
+
+
+
+//2、结束函数
+int end(int mainres)
+{
+
+	//下面处理游戏返回的结果
+
+	system("cls");
+	if (mainres == 1666)
+	{
+		printf("恭喜你！猜数字游戏已结束！");
+	}
+	else if (mainres == 2666)
+	{
+		printf("恭喜你！三子棋游戏已结束！");
+	}
+	else if (mainres == 3666)
+	{
+		printf("恭喜你！扫雷游戏已结束！");
+	}
+	else if (mainres == 000)
+	{
+		printf("产品维护中---------------");
+	}
+	else
+	{
+		printf("程序出错了，请重启游戏！");
+	}
+
+
+	//决定是否继续，利用返回值进行下一步操作
+
+	char mainchoosere[100];
+	while (((strcmp(mainchoosere, "1")) != 0) && ((strcmp(mainchoosere, "1")) != 0))//这个循环是处理用户输入非法字符的情况
+	{
+		printf("\n");
+		printf("请输入数字来确定是否回到主菜单:\n");
+		printf("数字1 *> 返回主菜单\n");
+		printf("数字2 *> 结束\n");
+		printf(" *>");
+		scanf("%s", &mainchoosere);//键入选择
+		if (strcmp(mainchoosere, "1") == 0)
+		{
+			return 666;
+		}
+		else if (strcmp(mainchoosere, "2") == 0)
+		{
+			return 0;
+		}
+		else
+		{
+			printf("请输入正确的数字");
+			printf("\n");
+			return 1;
+		}
+	}
+}
