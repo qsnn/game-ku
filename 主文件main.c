@@ -1,80 +1,86 @@
 #include"ku.h"
 
 
-//¼¸¸öÓÎÏ·
+//å‡ ä¸ªæ¸¸æˆ
 int mainversion();
 int mainguessnum();
 int mainszq();
 int mainsaolei();
-//ÓÎÏ·½Ó¿ÚËµÃ÷£º°´ÕÕ´ÎĞòreturn [n]666
-//±ÈÈçËµ£º²ÂÊı×Ö1666£¬Èı×ÓÆå2666 ......
-//ĞÂÔöÓÎÏ·Ö»ĞèÌí¼Ó½Ó¿Ú¼´¿É
+//æ¸¸æˆæ¥å£è¯´æ˜ï¼šæŒ‰ç…§æ¬¡åºreturn [n]666
+//æ¯”å¦‚è¯´ï¼šçŒœæ•°å­—1666ï¼Œä¸‰å­æ£‹2666 ......
+//æ–°å¢æ¸¸æˆåªéœ€æ·»åŠ æ¥å£å³å¯
 
 
-//Ö÷ÎÄ¼şº¯Êı
+//ä¸»æ–‡ä»¶å‡½æ•°
 int mainmenu();
 int end(int mainres);
 
 
-//Ö÷Èë¿Ú---------------------------****-------------------------------------
+//ä¸»å…¥å£---------------------------****-------------------------------------
 int main()
 {
 	int endreturn;
 	do
 	{
-		int mainres = mainmenu();//mainmenu»á·µ»ØÒ»¸öÊıÖµ£¬´¦ÀíÓÎÏ·½á¹û
-		endreturn = end(mainres);//¸ù¾İÓÎÏ·½á¹ûÔËĞĞ½áÊø³ÌĞò
+		int mainres = mainmenu();//mainmenuä¼šè¿”å›ä¸€ä¸ªæ•°å€¼ï¼Œå¤„ç†æ¸¸æˆç»“æœ
+		if (mainres == 0)
+		{
+			break;
+		}
+		endreturn = end(mainres);//æ ¹æ®æ¸¸æˆç»“æœè¿è¡Œç»“æŸç¨‹åº
 	} while (endreturn = 666);
-	return "Exit";
+	return 0;
 }
 
-//Ö÷Èë¿Ú---------------------------****-------------------------------------
+//ä¸»å…¥å£---------------------------****-------------------------------------
 
 
 
-//1¡¢Ö÷²Ëµ¥º¯Êı
+//1ã€ä¸»èœå•å‡½æ•°
 int mainmenu()
 {
 	while(1)
 	{
 		PlaySound(NULL, NULL, SND_PURGE);
 		system("cls");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE); 
 		printf("***************************************************\n");
-		printf("*************  QSÓÎÏ·¿â-made by qsnn  *************\n");
-		printf("************  °æ±¾£ºv1.1               ************\n");
+		printf("*************  QSæ¸¸æˆåº“-made by qsnn  *************\n");
+		printf("*************  ç‰ˆæœ¬ï¼šv1.2             *************\n");
 		printf("***************************************************\n");
-		printf("ÇëÑ¡ÔñÄãÏëÍæµÄÓÎÏ·\n");
-		printf("1 *> ²ÂÊı×Ö\n");
-		printf("2 *> Èı×ÓÆå\n");
-		printf("3 *> É¨À×\n");
-		printf("v *> °æ±¾ÈÕÖ¾\n");
-		printf("exit *> ÍË³ö\n");
+		printf("è¯·é€‰æ‹©ä½ æƒ³ç©çš„æ¸¸æˆ\n");
+		printf("1 *> çŒœæ•°å­—\n");
+		printf("2 *> ä¸‰å­æ£‹\n");
+		printf("3 *> æ‰«é›·\n");
+		printf("v *> ç‰ˆæœ¬æ—¥å¿—\n");
+		printf("exit *> é€€å‡º\n");
 		printf(" *>");
 		char mainchoose[10];
-		scanf("%s", &mainchoose);//Ñ¡Ôñ½øĞĞµÄÓÎÏ·
+		scanf("%s", &mainchoose);//é€‰æ‹©è¿›è¡Œçš„æ¸¸æˆ
 		if (strcmp(mainchoose, "1") == 0)
 		{
-			return mainguessnum();//·µ»Ø1666
+			return mainguessnum();//è¿”å›1666
 		}
 		else if (strcmp(mainchoose, "2") == 0)
 		{
-			return mainszq();//·µ»Ø2666
+			return mainszq();//è¿”å›2666
 		}
 		else if (strcmp(mainchoose, "3") == 0)
 		{
-			return mainsaolei();//·µ»Ø3666
+			return mainsaolei();//è¿”å›3666
 		}
 		else if (strcmp(mainchoose, "v") == 0)
 		{
-			return mainversion();
+			mainversion();
+			return 666;
 		}
 		else if (strcmp(mainchoose, "exit") == 0)
 		{
-			break;
+			return 0;
 		}
 		else
 		{
-			printf("Çë1ÃëºóÊäÈëÕıÈ·µÄÖ¸Áî£¡");
+			printf("è¯·1ç§’åè¾“å…¥æ­£ç¡®çš„æŒ‡ä»¤ï¼");
 			Sleep(1000);
 		}
 	}
@@ -82,59 +88,43 @@ int mainmenu()
 
 
 
-//2¡¢½áÊøº¯Êı
+//2ã€ç»“æŸå‡½æ•°
 int end(int mainres)
 {
 
-	//ÏÂÃæ´¦ÀíÓÎÏ··µ»ØµÄ½á¹û
+	//ä¸‹é¢å¤„ç†æ¸¸æˆè¿”å›çš„ç»“æœ
 
 	system("cls");
 	if (mainres == 1666)
 	{
-		printf("¹§Ï²Äã£¡²ÂÊı×ÖÓÎÏ·ÒÑ½áÊø£¡");
+		printf("æ­å–œä½ ï¼çŒœæ•°å­—æ¸¸æˆå·²ç»“æŸï¼\n");
 	}
 	else if (mainres == 2666)
 	{
-		printf("¹§Ï²Äã£¡Èı×ÓÆåÓÎÏ·ÒÑ½áÊø£¡");
+		printf("æ­å–œä½ ï¼ä¸‰å­æ£‹æ¸¸æˆå·²ç»“æŸï¼\n");
 	}
 	else if (mainres == 3666)
 	{
-		printf("¹§Ï²Äã£¡É¨À×ÓÎÏ·ÒÑ½áÊø£¡");
+		printf("æ­å–œä½ ï¼æ‰«é›·æ¸¸æˆå·²ç»“æŸï¼\n");
 	}
-	else if (mainres == 000)
+	else if (mainres == 404)
 	{
-		printf("²úÆ·Î¬»¤ÖĞ---------------");
+		printf("äº§å“ç»´æŠ¤ä¸­---------------\n");
+		system("pause");
+		return 666;
 	}
+	else if (mainres == 666)
+	{
+		return 666;
+	}
+	else if (mainres == 0)
+	{
+		return 0;
+	}
+
 	else
 	{
-		printf("³ÌĞò³ö´íÁË£¬ÇëÖØÆôÓÎÏ·£¡");
+		printf("ç¨‹åºå‡ºé”™äº†ï¼Œè¯·é‡å¯æ¸¸æˆï¼");
 	}
-
-
-	//¾ö¶¨ÊÇ·ñ¼ÌĞø£¬ÀûÓÃ·µ»ØÖµ½øĞĞÏÂÒ»²½²Ù×÷
-
-	char mainchoosere[100];
-	while (((strcmp(mainchoosere, "1")) != 0) && ((strcmp(mainchoosere, "1")) != 0))//Õâ¸öÑ­»·ÊÇ´¦ÀíÓÃ»§ÊäÈë·Ç·¨×Ö·ûµÄÇé¿ö
-	{
-		printf("\n");
-		printf("ÇëÊäÈëÊı×ÖÀ´È·¶¨ÊÇ·ñ»Øµ½Ö÷²Ëµ¥:\n");
-		printf("Êı×Ö1 *> ·µ»ØÖ÷²Ëµ¥\n");
-		printf("Êı×Ö2 *> ½áÊø\n");
-		printf(" *>");
-		scanf("%s", &mainchoosere);//¼üÈëÑ¡Ôñ
-		if (strcmp(mainchoosere, "1") == 0)
-		{
-			return 666;
-		}
-		else if (strcmp(mainchoosere, "2") == 0)
-		{
-			return 0;
-		}
-		else
-		{
-			printf("ÇëÊäÈëÕıÈ·µÄÊı×Ö");
-			printf("\n");
-			return 1;
-		}
-	}
+	return 666;
 }

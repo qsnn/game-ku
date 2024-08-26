@@ -1,7 +1,8 @@
 void mainversion()
 {
 	system("cls");
-	printf("v1.0:½«²ÂÊý×ÖÕûºÏ£¬ÕýÔÚÖÆ×÷ÆäËûÓÎÏ·\n");
-	printf("v1.1:½«Èý×ÓÆåÕûºÏ£¬ÓÅ»¯ÕûÌå´úÂë½á¹¹¡£ÕýÔÚÖÆ×÷ÆäËûÓÎÏ·\n");
+	printf("v1.0:å°†çŒœæ•°å­—æ•´åˆï¼Œæ­£åœ¨åˆ¶ä½œå…¶ä»–æ¸¸æˆ\n");
+	printf("v1.1:å°†ä¸‰å­æ£‹æ•´åˆï¼Œä¼˜åŒ–æ•´ä½“ä»£ç ç»“æž„ã€‚æ­£åœ¨åˆ¶ä½œå…¶ä»–æ¸¸æˆ\n");
+	printf("v1.2:ä¼˜åŒ–ä¸‰å­æ£‹ä»£ç ç»“æž„");
 	system("pause");
 }
