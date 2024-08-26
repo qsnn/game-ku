@@ -52,7 +52,8 @@ int mainszq()
 void szqversion()
 {
 	printf("1.0：三子棋游戏上新，快来体验！！！\n");
-	printf("1.1：优化数组结构，采用二维数组，删除temp转化，提高运行效率\n更改界面UI");
+	printf("1.1：优化数组结构，采用二维数组，删除temp转化，提高运行效率\n更改界面UI\n");
+	printf("1.2：紧急更新，修复重大BUG\n");
 	system("pause");
 }
 
@@ -63,7 +64,7 @@ void szqmenu(char qizi[3][3], int data[3][3])
 	while(1)
 	{
 		system("cls");
-		printf("版权所有：qsnn\n版本：1.1\n");
+		printf("版权所有：qsnn\n版本：1.2\n");
 		printf(" ________________________ \n");
 		printf("||----------------------||\n");
 		printf("||        三子棋        ||\n");
@@ -106,17 +107,14 @@ void szqmenu(char qizi[3][3], int data[3][3])
 //游戏主体
 void szqgame(char qizi[3][3], int data[3][3])
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN);
-	szqdesktop(qizi, data);
 	for (int i = 0; i < 9; i++)
 	{
 		int decide;
 		if (i % 2 == 0)
 		{
 			decide = szqman(qizi, data);
-			system("cls");
 		}
-		else if (i % 2 == 1)
+		else
 		{
 			decide = szqmachine(qizi, data);
 		}
@@ -157,6 +155,7 @@ int szqman(char qizi[3][3], int data[3][3])
 	printf("请输入你下棋的行列位置\n");
 	while (1)
 	{
+		szqdesktop(qizi, data);
 		int x, y;
 		printf("请输入行序号x:");
 		scanf("%d", &x);
@@ -191,11 +190,17 @@ int szqman(char qizi[3][3], int data[3][3])
 //机器下棋
 int szqmachine(char qizi[3][3], int data[3][3])
 {
+	printf("机器人思考中\n");
+	for (int i = 1; i <= 6; i++)
+	{
+		Sleep(200);
+		printf(".");
+	}
 	while(1)
 
 	{
-		int x = rand() % 3 + 1;
-		int y = rand() % 3 + 1;
+		int x = rand() % 3;
+		int y = rand() % 3;
 		if (qizi[x][y] == ' ')
 		{
 			qizi[x][y] = 'o';
@@ -203,14 +208,6 @@ int szqmachine(char qizi[3][3], int data[3][3])
 			break;
 		}
 	}
-	szqdesktop(qizi, data);
-	printf("机器人思考中\n");
-	for (int i = 1; i <= 6; i++)
-	{
-		Sleep(200);
-		printf(".");
-	}
-	system("cls");
 	szqdesktop(qizi, data);
 	int temp = szqcheck(data);
 	return temp;
@@ -221,6 +218,7 @@ int szqmachine(char qizi[3][3], int data[3][3])
 void szqdesktop(char qizi[3][3])
 {
 	printf("下面是棋盘，下棋时输入两个值，分别为行列序数\n");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN);
 	printf("  \\y |  1  |  2  |  3  |\n");
 	printf("_x_\\_|_____|_____|_____|\n");
 	printf("  1  |  %c  |  %c  |  %c  |\n", qizi[0][0], qizi[0][1], qizi[0][2]);
@@ -229,6 +227,7 @@ void szqdesktop(char qizi[3][3])
 	printf("_____|_____|_____|_____|\n");
 	printf("  3  |  %c  |  %c  |  %c  |\n", qizi[2][0], qizi[2][1], qizi[2][2]);
 	printf("_____|_____|_____|_____|\n");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 }
 
 
@@ -255,9 +254,6 @@ int szqcheck(int data[3][3])
 			printf("恭喜！！！您胜利了！！！\n");
 			return 201;
 		}
-		else
-		{
-			return 20;
-		}
 	}
+		return 20;
 }
