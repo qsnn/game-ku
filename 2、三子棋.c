@@ -23,11 +23,8 @@ int mainszq()
 		printf(".");
 	}
 	Sleep(800);
-	PlaySound(MAKEINTRESOURCE(IDR_WAVE2), NULL, SND_RESOURCE | SND_ASYNC);
+	music(2);
 	Sleep(100);
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	WORD color = FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN;
-	SetConsoleTextAttribute(hConsole, color);
 	char qizi[3][3] =
 	{
 		{ ' ' , ' ' , ' '} ,
@@ -46,16 +43,6 @@ int mainszq()
 }
 //三子棋主入口---------------------------****-------------------------------------
 
-
-
-//版本
-void szqversion()
-{
-	printf("1.0：三子棋游戏上新，快来体验！！！\n");
-	printf("1.1：优化数组结构，采用二维数组，删除temp转化，提高运行效率\n更改界面UI\n");
-	printf("1.2：紧急更新，修复重大BUG\n");
-	system("pause");
-}
 
 
 //菜单
@@ -91,7 +78,6 @@ void szqmenu(char qizi[3][3], int data[3][3])
 		}
 		else if (strcmp(choose1, "3") == 0)
 		{
-			system("cls");
 			szqversion();
 		}
 		else
@@ -144,7 +130,6 @@ void szqgame(char qizi[3][3], int data[3][3])
 			data[i][j] = 9;
 		}
 	}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	system("pause");
 }
 
@@ -217,8 +202,8 @@ int szqmachine(char qizi[3][3], int data[3][3])
 //棋盘局面
 void szqdesktop(char qizi[3][3])
 {
+	printf("\033[33m");
 	printf("下面是棋盘，下棋时输入两个值，分别为行列序数\n");
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN);
 	printf("  \\y |  1  |  2  |  3  |\n");
 	printf("_x_\\_|_____|_____|_____|\n");
 	printf("  1  |  %c  |  %c  |  %c  |\n", qizi[0][0], qizi[0][1], qizi[0][2]);
@@ -227,7 +212,7 @@ void szqdesktop(char qizi[3][3])
 	printf("_____|_____|_____|_____|\n");
 	printf("  3  |  %c  |  %c  |  %c  |\n", qizi[2][0], qizi[2][1], qizi[2][2]);
 	printf("_____|_____|_____|_____|\n");
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	printf("\033[0m");
 }
 
 

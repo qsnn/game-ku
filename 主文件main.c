@@ -46,7 +46,7 @@ int mainmenu()
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE); 
 		printf("***************************************************\n");
 		printf("*************  QS游戏库-made by qsnn  *************\n");
-		printf("*************  版本：v1.2             *************\n");
+		printf("*************  版本：v1.3.0           *************\n");
 		printf("***************************************************\n");
 		printf("请选择你想玩的游戏\n");
 		printf("1 *> 猜数字\n");
@@ -98,14 +98,17 @@ int end(int mainres)
 	if (mainres == 1666)
 	{
 		printf("恭喜你！猜数字游戏已结束！\n");
+		system("pause");
 	}
 	else if (mainres == 2666)
 	{
 		printf("恭喜你！三子棋游戏已结束！\n");
+		system("pause");
 	}
 	else if (mainres == 3666)
 	{
 		printf("恭喜你！扫雷游戏已结束！\n");
+		system("pause");
 	}
 	else if (mainres == 404)
 	{
@@ -121,10 +124,10 @@ int end(int mainres)
 	{
 		return 0;
 	}
-
 	else
 	{
 		printf("程序出错了，请重启游戏！");
+		system("pause");
 	}
 	return 666;
 }
