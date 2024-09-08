@@ -27,7 +27,7 @@ void saoleimenu()
 	while (1)
 	{
 		system("cls");
-		printf("版权所有：qsnn\n版本：1.1\n");
+		printf("版权所有：qsnn\n版本：1.2\n");
 		printf(" ________________________ \n");
 		printf("||----------------------||\n");
 		printf("||         扫雷         ||\n");
@@ -204,8 +204,20 @@ int saoleiinput(char overdesktop[11][11], char desktop[11][11], int underdesktop
 	{
 		round++;
 		int inputx, inputy;
+		printf("总共10个雷\n");
 		printf("请输入你认为不是地雷的地方的坐标\n");
-		scanf("%d %d", &inputx, &inputy);
+		if (scanf("%d", &inputx) != 1)
+		{
+			printf("请输入正确的序号！\n");
+			while (getchar() != '\n');
+			continue;
+		}
+		if (scanf("%d", &inputy) != 1)
+		{
+			printf("请输入正确的序号！\n");
+			while (getchar() != '\n');
+			continue;
+		}
 		if (round == 1)
 		{
 			saoleicreate(overdesktop, desktop, underdesktop ,inputx, inputy);

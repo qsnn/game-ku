@@ -9,6 +9,7 @@ void mainversion()
 	printf("v1.2.2:优化整体代码结构,优化背景音乐的资源占用\n");
 	printf("v1.3.0:正式启动扫雷游戏\n");
 	printf("v1.3.1:修复扫雷游戏自动展开的一些BUG\n");
+	printf("v1.3.2:修复扫雷游戏及三子棋游戏中键入非整数而导致栈溢出的问题\n");
 	system("pause");
 }
 
@@ -33,6 +34,7 @@ void szqversion()
 	printf("1.0：三子棋游戏上新，快来体验！！！\n");
 	printf("1.1：优化数组结构，采用二维数组，删除temp转化，提高运行效率\n更改界面UI\n");
 	printf("1.2：紧急更新，修复重大BUG\n");
+	printf("1.3:修复游戏中键入非整数而导致栈溢出的问题\n");
 	system("pause");
 }
 
@@ -43,5 +45,6 @@ void saoleiversion()
 	system("cls");
 	printf("1.0：扫雷游戏上新，快来体验！！！\n");
 	printf("1.1：修复一些自动展开的BUG\n");
+	printf("1.2:修复游戏中键入非整数而导致栈溢出的问题\n");
 	system("pause");
 }

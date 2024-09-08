@@ -51,7 +51,7 @@ void szqmenu(char qizi[3][3], int data[3][3])
 	while(1)
 	{
 		system("cls");
-		printf("版权所有：qsnn\n版本：1.2\n");
+		printf("版权所有：qsnn\n版本：1.3\n");
 		printf(" ________________________ \n");
 		printf("||----------------------||\n");
 		printf("||        三子棋        ||\n");
@@ -142,10 +142,19 @@ int szqman(char qizi[3][3], int data[3][3])
 	{
 		szqdesktop(qizi, data);
 		int x, y;
-		printf("请输入行序号x:");
-		scanf("%d", &x);
-		printf("请输入列序号y:");
-		scanf("%d", &y);
+		printf("请分别输入行序号x和列序号y:");
+		if (scanf("%d", &x) != 1)
+		{
+			printf("请输入正确的序号！\n");
+			while (getchar() != '\n');
+			continue;
+		}
+		if (scanf("%d", &y) != 1)
+		{
+			printf("请输入正确的序号！\n");
+			while (getchar() != '\n');
+			continue;
+		}
 		if (x >= 1 && x <= 3 && y >= 1 && y <= 3)
 		{
 			x--;
