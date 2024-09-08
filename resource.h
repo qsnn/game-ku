@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ ���ɵİ����ļ���
-// �� ʵս.rc ʹ��
+// Microsoft Visual C++ 生成的包含文件。
+// 供 game-ku-v1.3.1.rc 使用
 //
 #define IDR_WAVE1                       101
 #define IDR_WAVE2                       102

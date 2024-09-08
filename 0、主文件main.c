@@ -46,7 +46,7 @@ int mainmenu()
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE); 
 		printf("***************************************************\n");
 		printf("*************  QS游戏库-made by qsnn  *************\n");
-		printf("*************  版本：v1.3.0           *************\n");
+		printf("*************  版本：v1.3.1           *************\n");
 		printf("***************************************************\n");
 		printf("请选择你想玩的游戏\n");
 		printf("1 *> 猜数字\n");

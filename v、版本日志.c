@@ -8,6 +8,7 @@ void mainversion()
 	printf("v1.2.1:修复三子棋重大BUG\n");
 	printf("v1.2.2:优化整体代码结构,优化背景音乐的资源占用\n");
 	printf("v1.3.0:正式启动扫雷游戏\n");
+	printf("v1.3.1:修复扫雷游戏自动展开的一些BUG\n");
 	system("pause");
 }
 
@@ -41,5 +42,6 @@ void saoleiversion()
 {
 	system("cls");
 	printf("1.0：扫雷游戏上新，快来体验！！！\n");
+	printf("1.1：修复一些自动展开的BUG\n");
 	system("pause");
 }

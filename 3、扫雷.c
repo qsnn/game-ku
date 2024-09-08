@@ -5,7 +5,7 @@ void saoleimenu();
 void saoleigame();
 void saoleicreate(char overdesktop[11][11], char desktop[11][11], int underdesktop[11][11], int inputx, int inputy);
 int saoleiinput(char overdesktop[11][11],char desktop[11][11], int underdesktop[11][11]);
-void autoOpen(char overdesktop[11][11], char desktop[11][11], int underdesktop[11][11]);
+void autoOpen(char overdesktop[11][11], char desktop[11][11], int underdesktop[11][11], int inputx, int inputy);
 void saoleioverdesktop(char overdesktop[11][11]);
 int saoleicheck(char overdesktop[11][11]);
 
@@ -27,7 +27,7 @@ void saoleimenu()
 	while (1)
 	{
 		system("cls");
-		printf("版权所有：qsnn\n版本：1.0\n");
+		printf("版权所有：qsnn\n版本：1.1\n");
 		printf(" ________________________ \n");
 		printf("||----------------------||\n");
 		printf("||         扫雷         ||\n");
@@ -225,6 +225,13 @@ int saoleiinput(char overdesktop[11][11], char desktop[11][11], int underdesktop
 				}
 			}
 			printf("\033[31m");
+			for (int i = 1; i < 10; i++)
+			{
+				for (int j = 1; j < 10; j++)
+				{
+					overdesktop[i][j] = desktop[i][j];
+				}
+			}
 			saoleioverdesktop(overdesktop);
 			printf("恭喜你中奖了！\033[0m\n");
 			system("pause");
@@ -233,7 +240,7 @@ int saoleiinput(char overdesktop[11][11], char desktop[11][11], int underdesktop
 		else
 		{
 			overdesktop[inputx][inputy] = desktop[inputx][inputy];
-			autoOpen(overdesktop, desktop, underdesktop);
+			autoOpen(overdesktop, desktop, underdesktop,inputx,inputy);
 			saoleioverdesktop(overdesktop);
 			if (saoleicheck(overdesktop) == 666)
 			{
@@ -260,13 +267,36 @@ int saoleiinput(char overdesktop[11][11], char desktop[11][11], int underdesktop
 }
 
 
-void autoOpen(char overdesktop[11][11], char desktop[11][11], int underdesktop[11][11])
+void autoOpen(char overdesktop[11][11], char desktop[11][11], int underdesktop[11][11], int inputx, int inputy)
 {
+	if ((desktop[inputx][inputy] != '!') && (overdesktop[inputx][inputy] != '*'))
+	{
+		if (desktop[inputx][inputy] == '0')
+		{
+			overdesktop[inputx][inputy] = ' ';
+		}
+		if (desktop[inputx + 1][inputy] == '0')
+		{
+			overdesktop[inputx + 1][inputy] = ' ';
+		}
+		if (desktop[inputx - 1][inputy] == '0')
+		{
+			overdesktop[inputx - 1][inputy] = ' ';
+		}
+		if (desktop[inputx][inputy + 1] == '0')
+		{
+			overdesktop[inputx][inputy + 1] = ' ';
+		}
+		if (desktop[inputx][inputy - 1] == '0')
+		{
+			overdesktop[inputx][inputy - 1] = ' ';
+		}
+	}
 	for (int i = 1; i < 10; i++)
 	{
 		for (int j = 1; j < 10; j++)
 		{
-			if ((desktop[i][j] != '!') && (overdesktop[i][j] != '*'))
+			if ((desktop[i][j] == '0') && (overdesktop[i][j] == ' '))
 			{
 				if (desktop[i + 1][j] == '0')
 				{
@@ -299,6 +329,38 @@ void autoOpen(char overdesktop[11][11], char desktop[11][11], int underdesktop[1
 				else if ((underdesktop[i][j - 1] > 0) && (underdesktop[i][j - 1] < 10))
 				{
 					overdesktop[i][j - 1] = desktop[i][j - 1];
+				}
+				if (desktop[i + 1][j + 1] == '0')
+				{
+					overdesktop[i + 1][j + 1] = ' ';
+				}
+				else if ((underdesktop[i + 1][j + 1] > 0) && (underdesktop[i + 1][j + 1] < 10))
+				{
+					overdesktop[i + 1][j + 1] = desktop[i + 1][j + 1];
+				}
+				if (desktop[i + 1][j - 1] == '0')
+				{
+					overdesktop[i + 1][j - 1] = ' ';
+				}
+				else if ((underdesktop[i + 1][j - 1] > 0) && (underdesktop[i + 1][j - 1] < 10))
+				{
+					overdesktop[i + 1][j - 1] = desktop[i + 1][j - 1];
+				}
+				if (desktop[i - 1][j + 1] == '0')
+				{
+					overdesktop[i - 1][j + 1] = ' ';
+				}
+				else if ((underdesktop[i - 1][j + 1] > 0) && (underdesktop[i - 1][j + 1] < 10))
+				{
+					overdesktop[i - 1][j + 1] = desktop[i - 1][j + 1];
+				}
+				if (desktop[i - 1][j - 1] == '0')
+				{
+					overdesktop[i - 1][j - 1] = ' ';
+				}
+				else if ((underdesktop[i - 1][j - 1] > 0) && (underdesktop[i - 1][j - 1] < 10))
+				{
+					overdesktop[i - 1][j - 1] = desktop[i - 1][j - 1];
 				}
 			}
 		}
