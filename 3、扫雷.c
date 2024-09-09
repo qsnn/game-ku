@@ -11,12 +11,18 @@ int saoleicheck(char overdesktop[11][11]);
 
 
 
-
-
-
-
 int mainsaolei()
 {
+	system("cls");
+	printf("正在初始化扫雷游戏");
+	for (int i = 1; i <= 6; i++)
+	{
+		Sleep(200);
+		printf(".");
+	}
+	Sleep(800);
+	music(3);
+	Sleep(100);
 	saoleimenu();
 	return 3666;
 }
@@ -27,7 +33,7 @@ void saoleimenu()
 	while (1)
 	{
 		system("cls");
-		printf("版权所有：qsnn\n版本：1.2\n");
+		printf("版权所有：qsnn\n版本：2.0\n");
 		printf(" ________________________ \n");
 		printf("||----------------------||\n");
 		printf("||         扫雷         ||\n");
@@ -382,26 +388,18 @@ void autoOpen(char overdesktop[11][11], char desktop[11][11], int underdesktop[1
 
 void saoleioverdesktop(char overdesktop[11][11])
 {
-	printf("  \\y |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |\n");
-	printf("_x_\\_|_____|_____|_____|_____|_____|_____|_____|_____|_____|\n");
-	printf("  1  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |\n", overdesktop[1][1], overdesktop[1][2], overdesktop[1][3], overdesktop[1][4], overdesktop[1][5], overdesktop[1][6], overdesktop[1][7], overdesktop[1][8], overdesktop[1][9]);
-	printf("_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|\n");
-	printf("  2  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |\n", overdesktop[2][1], overdesktop[2][2], overdesktop[2][3], overdesktop[2][4], overdesktop[2][5], overdesktop[2][6], overdesktop[2][7], overdesktop[2][8], overdesktop[2][9]);
-	printf("_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|\n");
-	printf("  3  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |\n", overdesktop[3][1], overdesktop[3][2], overdesktop[3][3], overdesktop[3][4], overdesktop[3][5], overdesktop[3][6], overdesktop[3][7], overdesktop[3][8], overdesktop[3][9]);
-	printf("_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|\n");
-	printf("  4  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |\n", overdesktop[4][1], overdesktop[4][2], overdesktop[4][3], overdesktop[4][4], overdesktop[4][5], overdesktop[4][6], overdesktop[4][7], overdesktop[4][8], overdesktop[4][9]);
-	printf("_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|\n");
-	printf("  5  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |\n", overdesktop[5][1], overdesktop[5][2], overdesktop[5][3], overdesktop[5][4], overdesktop[5][5], overdesktop[5][6], overdesktop[5][7], overdesktop[5][8], overdesktop[5][9]);
-	printf("_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|\n");
-	printf("  6  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |\n", overdesktop[6][1], overdesktop[6][2], overdesktop[6][3], overdesktop[6][4], overdesktop[6][5], overdesktop[6][6], overdesktop[6][7], overdesktop[6][8], overdesktop[6][9]);
-	printf("_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|\n");
-	printf("  7  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |\n", overdesktop[7][1], overdesktop[7][2], overdesktop[7][3], overdesktop[7][4], overdesktop[7][5], overdesktop[7][6], overdesktop[7][7], overdesktop[7][8], overdesktop[7][9]);
-	printf("_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|\n");
-	printf("  8  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |\n", overdesktop[8][1], overdesktop[8][2], overdesktop[8][3], overdesktop[8][4], overdesktop[8][5], overdesktop[8][6], overdesktop[8][7], overdesktop[8][8], overdesktop[8][9]);
-	printf("_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|\n");
-	printf("  9  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |  %c  |\n", overdesktop[9][1], overdesktop[9][2], overdesktop[9][3], overdesktop[9][4], overdesktop[9][5], overdesktop[9][6], overdesktop[9][7], overdesktop[9][8], overdesktop[9][9]);
-	printf("_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|\n");
+	printf("  \\y | 1  2  3  4  5  6  7  8  9 |\n");
+	printf("_x_\\_|___________________________|\n");
+	printf("  1  | %c  %c  %c  %c  %c  %c  %c  %c  %c |\n", overdesktop[1][1], overdesktop[1][2], overdesktop[1][3], overdesktop[1][4], overdesktop[1][5], overdesktop[1][6], overdesktop[1][7], overdesktop[1][8], overdesktop[1][9]);
+	printf("  2  | %c  %c  %c  %c  %c  %c  %c  %c  %c |\n", overdesktop[2][1], overdesktop[2][2], overdesktop[2][3], overdesktop[2][4], overdesktop[2][5], overdesktop[2][6], overdesktop[2][7], overdesktop[2][8], overdesktop[2][9]);
+	printf("  3  | %c  %c  %c  %c  %c  %c  %c  %c  %c |\n", overdesktop[3][1], overdesktop[3][2], overdesktop[3][3], overdesktop[3][4], overdesktop[3][5], overdesktop[3][6], overdesktop[3][7], overdesktop[3][8], overdesktop[3][9]);
+	printf("  4  | %c  %c  %c  %c  %c  %c  %c  %c  %c |\n", overdesktop[4][1], overdesktop[4][2], overdesktop[4][3], overdesktop[4][4], overdesktop[4][5], overdesktop[4][6], overdesktop[4][7], overdesktop[4][8], overdesktop[4][9]);
+	printf("  5  | %c  %c  %c  %c  %c  %c  %c  %c  %c |\n", overdesktop[5][1], overdesktop[5][2], overdesktop[5][3], overdesktop[5][4], overdesktop[5][5], overdesktop[5][6], overdesktop[5][7], overdesktop[5][8], overdesktop[5][9]);
+	printf("  6  | %c  %c  %c  %c  %c  %c  %c  %c  %c |\n", overdesktop[6][1], overdesktop[6][2], overdesktop[6][3], overdesktop[6][4], overdesktop[6][5], overdesktop[6][6], overdesktop[6][7], overdesktop[6][8], overdesktop[6][9]);
+	printf("  7  | %c  %c  %c  %c  %c  %c  %c  %c  %c |\n", overdesktop[7][1], overdesktop[7][2], overdesktop[7][3], overdesktop[7][4], overdesktop[7][5], overdesktop[7][6], overdesktop[7][7], overdesktop[7][8], overdesktop[7][9]);
+	printf("  8  | %c  %c  %c  %c  %c  %c  %c  %c  %c |\n", overdesktop[8][1], overdesktop[8][2], overdesktop[8][3], overdesktop[8][4], overdesktop[8][5], overdesktop[8][6], overdesktop[8][7], overdesktop[8][8], overdesktop[8][9]);
+	printf("  9  | %c  %c  %c  %c  %c  %c  %c  %c  %c |\n", overdesktop[9][1], overdesktop[9][2], overdesktop[9][3], overdesktop[9][4], overdesktop[9][5], overdesktop[9][6], overdesktop[9][7], overdesktop[9][8], overdesktop[9][9]);
+	printf("_____|___________________________|\n");
 }
 
 

@@ -37,7 +37,7 @@ void gnmenu()
 	while(1)
 	{
 		system("cls");
-		printf("版权所有：qsnn\n版本：4.1\n");
+		printf("版权所有：qsnn\n版本：4.2\n");
 		printf(" ________________________ \n");
 		printf("||----------------------||\n");
 		printf("||      猜数字游戏      ||\n");

@@ -14,4 +14,8 @@ void music(int musicnum)
 	{
 		PlaySound(MAKEINTRESOURCE(IDR_WAVE2), NULL, SND_RESOURCE | SND_ASYNC);
 	}
+	else if (musicnum == 3)
+	{
+		PlaySound(MAKEINTRESOURCE(IDR_WAVE3), NULL, SND_RESOURCE | SND_ASYNC);
+	}
 }

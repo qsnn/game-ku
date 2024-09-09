@@ -51,7 +51,7 @@ void szqmenu(char qizi[3][3], int data[3][3])
 	while(1)
 	{
 		system("cls");
-		printf("版权所有：qsnn\n版本：1.3\n");
+		printf("版权所有：qsnn\n版本：2.0\n");
 		printf(" ________________________ \n");
 		printf("||----------------------||\n");
 		printf("||        三子棋        ||\n");
